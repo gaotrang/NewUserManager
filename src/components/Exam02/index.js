@@ -14,6 +14,7 @@ const Exam02 = (props) => {
 
 
     const onCreate = () => {
+        setFormData(DEFAULT_STUDENT);
         setOpen(true)
     };
 
@@ -36,11 +37,9 @@ const Exam02 = (props) => {
             [name]: value,
         });
     };
-
     // const onCancel = () => {
     //     setOpen(false)
     // };
-
     const onSubmit = (id, data) => {
         if (id) {
             const newDataSource = dataSource.map((item) => { // return item.id === formData.id ? item

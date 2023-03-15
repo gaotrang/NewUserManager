@@ -53,6 +53,7 @@ const Exam02 = (props) => {
         <Table dataSource={props.dataSource} columns={columns} />
     )
 };
+
 export default Exam02;
 
 //SearchBox (components,class)
