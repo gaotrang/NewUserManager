@@ -18,8 +18,8 @@ const Exam02 = (props) => {
 
     const onSubmit = async () => {
         const values = await form.validateFields()
-        props.onSubmit({ data: values, id: props.formData.id })
-        //props.onSubmit(props.formData.id, values) cách cũ
+        // props.onSubmit( {data: values, id: props.formData.id })
+        props.onSubmit(props.formData.id, values) //cách cũ
     };
     const onCancel = () => {
         props.setOpen(false)
