@@ -1,25 +1,38 @@
 import styled from "styled-components";
-import { Button } from "antd";
+import { Input, Button } from "antd";
+
+//1rem = 16px
+//8px = 0.5rem
+//20px = 1.25rem
+//24px = 1.5rem
+//32px = 2rem
+//40px = 2.5rem
 
 //styled-component bao boc style cua antd
 export const ButtonCreate = styled(Button)` 
     display: block;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    background: gray;
-    color: #000000;
-    border-color: #000000
+
 
     &:hover {
-        background: red;
+        background: orange;
         color: #eeeeee;
-        border-color: #000000
+        border-color: #fff
 
     }
     &:active, &:focus {
         background: ;
         color: #000000;
-        border-color: blued
+        border-color: #fff;
     }
 `
-   
+export const SearchContainer = styled.div`
+    display: flex;
+   justify-content: space-between;
+   margin-bottom: 1.25rem;
+
+
+`
+export const SearchBox = styled(Input.Search)`
+    width: 30%;
+`
+

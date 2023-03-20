@@ -8,31 +8,31 @@ const Exam05 = (props) => {
             title: 'Tiêu đề',
             dataIndex: 'title',
             key: 'title',
-            width: "10%"
+            width: "25%"
         },
         {
             title: 'Tác giả',
             dataIndex: 'author',
             key: 'author',
-            width: "10%"
+            width: "15%"
         },
         {
             title: 'Mô tả',
             dataIndex: 'descrition',
             key: 'descrition',
-            width: '40%'
+            width: '30%'
         },
         {
             title: 'Loại sách',
             dataIndex: 'type',
             key: 'type',
-            width: "10%"
+            width: "15%"
         },
         {
             title: 'Số trang',
             dataIndex: 'pages',
             key: 'pages',
-            width: "10%"
+            width: "15%"
         },
         {
             title: "",
@@ -42,7 +42,7 @@ const Exam05 = (props) => {
                     <Actions>
                         <ButtonActions
                             onClick={() => {
-                                props.onEdit(item);
+                                props.onEdit(item.id);
                             }}
                         >Edit
                         </ButtonActions>
