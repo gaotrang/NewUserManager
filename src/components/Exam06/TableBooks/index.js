@@ -1,37 +1,38 @@
 import { Table, Button } from "antd";
 import { Actions, ButtonActions } from "./styled"
 //INPUT: dataSource, onEdit, onDelete
-const Exam05 = (props) => {
+const Exam06 = (props) => {
 
     const columns = [
         {
-            title: 'Tiêu đề',
-            dataIndex: 'title',
-            key: 'title',
+            title: 'Thành phố',
+            dataIndex: 'name',
+            key: 'name',
+            width: "15%"
+        },
+        {
+            title: 'Quốc gia',
+            dataIndex: 'country',
+            key: 'country',
+            width: "15%"
+        },
+        {
+            title: 'Mã quốc gia',
+            dataIndex: 'countrycode',
+            key: 'countrycode',
+            width: '15%'
+        },
+
+        {
+            title: 'Quốc kỳ',
+            dataIndex: 'countryflag',
+            key: 'countryflag',
             width: "25%"
         },
         {
-            title: 'Tác giả',
-            dataIndex: 'author',
-            key: 'author',
-            width: "15%"
-        },
-        {
-            title: 'Mô tả',
-            dataIndex: 'descrition',
-            key: 'descrition',
-            width: '30%'
-        },
-        {
-            title: 'Loại sách',
-            dataIndex: 'type',
-            key: 'type',
-            width: "15%"
-        },
-        {
-            title: 'Số trang',
-            dataIndex: 'pages',
-            key: 'pages',
+            title: 'Dân số',
+            dataIndex: 'population',
+            key: 'population',
             width: "15%"
         },
         {
@@ -68,7 +69,7 @@ const Exam05 = (props) => {
     )
 };
 
-export default Exam05;
+export default Exam06;
 
 
 

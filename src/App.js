@@ -3,7 +3,7 @@
 // import { Button } from 'antd'
 // import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import React from "react"
-import Exam05 from './components/Exam05';
+import Exam06 from './components/Exam06';
 
 // const { Header, Content, Footer } = Layout;
 const App = () => {
@@ -61,7 +61,7 @@ const App = () => {
   // );
   return (
     <div>
-      <Exam05 />
+      <Exam06 />
     </div>
   )
 };

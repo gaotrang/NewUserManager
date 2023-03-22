@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Form, Input, InputNumber, Modal, Select } from "antd";
 import { PageNumber } from "./styled"
 
-const ModalFormBook = (props) => {
+const ModalFormBooks = (props) => {
     const [form] = Form.useForm()
 
     useEffect(() => {
@@ -31,34 +31,31 @@ const ModalFormBook = (props) => {
     return (
         <Modal open={props.open || props.loading} confirmLoading={props.loading} onOk={onSubmit} onCancel={onCancel}>
             <Form form={form} layout="vertical">
-                <Form.Item name="title" label="Tiêu đề" rules={[{ required: true, message: 'Tiêu đề là bắt buộc' }]}>
+                <Form.Item name="name" label="Tên" rules={[{ required: true, message: 'Tên là bắt buộc' }]}>
                     <Input />
                 </Form.Item>
 
-                <Form.Item name="author" label="Tác giả" rules={[{ required: true, message: 'Vui lòng nhập tác giả' }]}>
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="descrition"
-                    label="Mô tả"
-                    rules={[
-                        { required: true, message: 'Vui lòng mô tả sách này' },
-                    ]}>
-                    <Input.TextArea />
-                </Form.Item>
-
-                <Form.Item name='type' label='Loại sách' rules={[{ required: true }, { message: 'Bắt buộc' }]}>
-                    <Select options={[
-                        { value: 'Tiểu thuyết', label: 'Tiểu thuyết' },
-                        { value: 'Kinh dị', label: 'Kinh dị' },
-                        { value: 'Tình cảm', label: 'Tình cảm' },
-                        { value: 'Truyện', label: 'Truyện' },
-                        { value: 'Khoa học viễn tưởng', label: 'Khoa học viễn tưởng' },
+                <Form.Item name="country" label="Quốc gia" rules={[{ required: true, message: 'Vui lòng chọn quốc gia' }]}>
+                <Select options={[
+                        { value: 'VietNam', label: 'VietNam' },
+                        { value: 'USA', label: 'USA' },
                     ]} />
                 </Form.Item>
 
-                <Form.Item name="pages" label="Số trang" rules={[{ required: true, message: 'Vui lòng nhập số trang' }]}>
+                <Form.Item
+                    name="countrycode"
+                    label="Mã"
+                    rules={[
+                        { required: true, message: 'Vui lòng mã quốc gia' },
+                    ]}>
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name='population' label='Dân số' rules={[{ required: true }, { message: 'Bắt buộc' }]}>
+                <Input />
+                </Form.Item>
+
+                <Form.Item name="countryflag" label="Quốc kỳ" rules={[{ required: true, message: 'Vui lòng chọn quốc kỳ' }]}>
                     <PageNumber placeholder="100-200" />
                 </Form.Item>
 
@@ -66,6 +63,6 @@ const ModalFormBook = (props) => {
         </Modal>
     )
 };
-export default ModalFormBook;
+export default ModalFormBooks;
 
 
