@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Form, Input, InputNumber, Modal, Select } from "antd";
 import { PageNumber } from "./styled"
 
-const ModalFormBooks = (props) => {
+const ModalFormCity = (props) => {
     const [form] = Form.useForm()
 
     useEffect(() => {
@@ -19,11 +19,11 @@ const ModalFormBooks = (props) => {
 
     const onSubmit = async () => {
         const values = await form.validateFields()
-        props.onSubmit(props.formData.id, values) 
-        
+        props.onSubmit(props.formData.id, values)
+
     };
     const onCancel = () => {
-        if(!props.loading) {
+        if (!props.loading) {
             props.setOpen(false)
         }
     };
@@ -36,9 +36,13 @@ const ModalFormBooks = (props) => {
                 </Form.Item>
 
                 <Form.Item name="country" label="Quốc gia" rules={[{ required: true, message: 'Vui lòng chọn quốc gia' }]}>
-                <Select options={[
+                    <Select options={[
                         { value: 'VietNam', label: 'VietNam' },
                         { value: 'USA', label: 'USA' },
+                        { value: 'France', label: 'France' },
+                        { value: 'Korea', label: 'Korea' },
+                        { value: 'Japan', label: 'Japan' },
+
                     ]} />
                 </Form.Item>
 
@@ -52,17 +56,17 @@ const ModalFormBooks = (props) => {
                 </Form.Item>
 
                 <Form.Item name='population' label='Dân số' rules={[{ required: true }, { message: 'Bắt buộc' }]}>
-                <Input />
+                    <Input />
                 </Form.Item>
 
                 <Form.Item name="countryflag" label="Quốc kỳ" rules={[{ required: true, message: 'Vui lòng chọn quốc kỳ' }]}>
-                    <PageNumber placeholder="100-200" />
+                    <Input />
                 </Form.Item>
 
             </Form>
         </Modal>
     )
 };
-export default ModalFormBooks;
+export default ModalFormCity;
 
 

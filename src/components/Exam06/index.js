@@ -3,11 +3,12 @@
 //API
 import { useState, useMemo, useEffect } from "react";
 // import { Button } from "antd";
-import TableBooks from "./TableBooks";
-import ModalFormBooks from "./ModalFormBooks"
+import TableCity from "./TableCity";
+import ModalFormCity from "./ModalFormCity"
 import { ButtonCreate, SearchBox, SearchContainer, FrameBook } from "./styled"
 import axios from "axios";
 import { Modal } from "antd";
+import ModalWeather from "./ModalWeather";
 
 const DEFAULT_CV = { name: "", country: "", countrycode: "", population: "", countryflag: "" }
 
@@ -20,6 +21,7 @@ const Exam06 = () => {
     const [tableloading, setTableLoading] = useState(false)
     const [submitloading, setSubmitLoading] = useState(false)
     const [itemloading, setItemLoading] = useState(false)
+    const [cityName, setCityName] = useState()
 
     useEffect(() => {
         axios.get('https://6401de2aab6b7399d0ae7950.mockapi.io/api/1/cities').then((res) => {
@@ -31,11 +33,11 @@ const Exam06 = () => {
         setTableLoading(true)
 
         axios
-        .get('https://6401de2aab6b7399d0ae7950.mockapi.io/api/1/cities')
-        .then((res) => {
-            setDataSource(res.data)
-            setTableLoading(false)
-        });
+            .get('https://6401de2aab6b7399d0ae7950.mockapi.io/api/1/cities')
+            .then((res) => {
+                setDataSource(res.data)
+                setTableLoading(false)
+            });
     };
 
     // useEffect( async () => {
@@ -63,15 +65,16 @@ const Exam06 = () => {
         Modal.confirm({
             title: "Xóa dữ liệu này?",
             content: "Dữ liệu sẽ bị xóa vĩnh viễn.",
-            onOk(){
+            onOk() {
                 setItemLoading(true)
-            axios
-            .delete(`https://6401de2aab6b7399d0ae7950.mockapi.io/api/1/cities/${id}`)
-            .then((res) => {
-                setItemLoading(false)
-                fetchData()
-            })}
-    });
+                axios
+                    .delete(`https://6401de2aab6b7399d0ae7950.mockapi.io/api/1/cities/${id}`)
+                    .then((res) => {
+                        setItemLoading(false)
+                        fetchData()
+                    })
+            }
+        });
     }
     const onChange = (e) => {
         const name = e.target.name;
@@ -119,15 +122,19 @@ const Exam06 = () => {
         if (keyword) {
 
             return dataSource.filter((item) => {
-                return item.title.includes(keyword) || item.author.includes(keyword)
+                return item.name.includes(keyword) || item.country.includes(keyword)
             })
         }
         return dataSource
-    }, [keyword, dataSource])
+    }, [keyword, dataSource]);
+
+    const onGetWeather = (name) => {
+        setCityName(name)
+    }
 
     return (
         <FrameBook>
-            <ModalFormBooks
+            <ModalFormCity
                 loading={submitloading}
                 open={open}
                 setOpen={setOpen}
@@ -135,17 +142,20 @@ const Exam06 = () => {
                 formData={formData}
                 onChange={onChange} />
 
+            <ModalWeather name={cityName} />
+
             <SearchContainer>
                 <SearchBox onChange={onSearch} />
                 <ButtonCreate onClick={onCreate}>New City</ButtonCreate>
             </SearchContainer>
 
 
-            <TableBooks 
-            loading={tableloading} 
-            itemloading={itemloading}
-            dataSource={searchDataSource} onEdit={onEdit} onDelete={onDelete} />
-            <input value={keyword} onChange={onSearch} />
+            <TableCity
+                onGetWeather={onGetWeather}
+                loading={tableloading}
+                itemloading={itemloading}
+                dataSource={searchDataSource} onEdit={onEdit} onDelete={onDelete} />
+
         </FrameBook>
     );
 };

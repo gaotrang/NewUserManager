@@ -11,27 +11,33 @@ import { Input, Button } from "antd";
 //styled-component bao boc style cua antd
 export const ButtonCreate = styled(Button)` 
     display: block;
-
+    margin: 10px 0px;
     &:hover {
         background: orange;
-        color: #eeeeee;
+        color: #fff;
         border-color: #fff
 
     }
     &:active, &:focus {
-        background: ;
-        color: #000000;
+        background: #gray ;
+        color: #gray;
         border-color: #fff;
     }
 `
 export const FrameBook = styled.div`
     margin: 50px 50px;
     border: 5px solid gray;
+    border-radius: 15px;
 `
 export const SearchContainer = styled.div`
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1280px-Flag_of_Vietnam.svg.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
    justify-content: space-between;
    margin-bottom: 1.25rem;
+    
 
 
 `
