@@ -9,6 +9,7 @@ import { ButtonCreate, SearchBox, SearchContainer, FrameBook } from "./styled"
 import axios from "axios";
 import { Modal } from "antd";
 import ModalWeather from "./ModalWeather";
+import ButtonImport from "./ButtonImport";
 
 const DEFAULT_CV = { name: "", country: "", countrycode: "", population: "", countryflag: "" }
 
@@ -130,7 +131,25 @@ const Exam06 = () => {
 
     const onGetWeather = (name) => {
         setCityName(name)
+    };
+    const onImport = async (items) => {
+        setTableLoading(true)
+        for (let i = 0; i < items.length; i++) {
+            await axios.post("https://6401de2aab6b7399d0ae7950.mockapi.io/api/1/cities/", items[i])
+        }
+        fetchData();
     }
+
+    // const onImport = (items) => {
+    //     const promises = []
+
+    //     for (let i = 0; i < items.length; i++) {
+    //         promises.push("https://6401de2aab6b7399d0ae7950.mockapi.io/api/1/cities/", items[i])
+    //     }
+    //     Promise.all(promises).then(() => {
+    //         fetchData();
+    //     })
+    // }
 
     return (
         <FrameBook>
@@ -146,7 +165,11 @@ const Exam06 = () => {
 
             <SearchContainer>
                 <SearchBox onChange={onSearch} />
-                <ButtonCreate onClick={onCreate}>New City</ButtonCreate>
+                <div>
+                    <ButtonImport onImport={onImport} />
+                    <ButtonCreate onClick={onCreate}>New City</ButtonCreate>
+                </div>
+
             </SearchContainer>
 
 
@@ -155,6 +178,7 @@ const Exam06 = () => {
                 loading={tableloading}
                 itemloading={itemloading}
                 dataSource={searchDataSource} onEdit={onEdit} onDelete={onDelete} />
+
 
         </FrameBook>
     );
