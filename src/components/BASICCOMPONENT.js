@@ -2,9 +2,11 @@ import { Table } from "antd";
 
 const Basic = (props) => {
 
-      return <Table dataSource={dataSource} columns={columns} />;
-    };
+  return (
+    <div></div>
+  );
+};
 
-    export default Basic;
+export default Basic;
 
-    
+

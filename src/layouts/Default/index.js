@@ -1,37 +1,42 @@
 import { Button } from 'antd';
-import { useNavigate, Link } from 'react-router-dom';
-import { Header, Main, Footer, Sidebar, Content } from './styled';
+import { CheckOutlined, UserOutlined } from '@ant-design/icons'
+import { Link } from 'react-router-dom';
+import { Header, Main, Footer, Sidebar, Content, Logo, Layout, MenuItem } from './styled';
+import AuthUser from "./AuthUser";
 
 const DefaultLayout = ({ children }) => {
-    const navigate = useNavigate();
 
-    const onLogout = () => {
-        localStorage.removeItem('token')
-        navigate("/");
-    }
     return (
-        <div>
-            <Header>
-                <a>Green Academy</a>
-                <Button onClick={onLogout}>Logout</Button>
-            </Header>
+        <Layout>
+            <Sidebar>
+                <Logo>Green Academy</Logo>
+                <MenuItem>
+                    <Link to='/dashboard'>
+                        <CheckOutlined />Dashboard
+                    </Link>
+                </MenuItem>
+                <MenuItem>
+                    <Link to='/students'>
+                        <UserOutlined /> Students
+                    </Link>
+                </MenuItem>
+            </Sidebar>
 
-            <Main>
-                <Sidebar>
-                    <Link to='/dashboard'>Dashboard</Link>
-                    <Link to='/students'> Students</Link>
-                </Sidebar>
+            <Content>
 
-                <Content>
+                <Header>
+                    <AuthUser />
+                </Header>
+
+                <Main>
                     {children}
-                </Content>
+                </Main>
 
-            </Main>
+                <Footer>Powered by </Footer>
 
+            </Content>
 
-            <Footer>Powered by </Footer>
-
-        </div>
+        </Layout>
     );
 };
 

@@ -5,12 +5,12 @@ import { useState, useMemo, useEffect } from "react";
 // import { Button } from "antd";
 import TableCity from "./TableCity";
 import ModalFormCity from "./ModalFormCity"
-import { ButtonCreate, SearchBox, SearchContainer, FrameBook } from "./styled"
+import { ButtonCreate, SearchContainer } from "./styled"
 import axios from "axios";
 import { Modal } from "antd";
 import ModalWeather from "./ModalWeather";
 import ButtonImport from "./ButtonImport";
-
+import SearchBox from "./SearchBox";
 const DEFAULT_CV = { name: "", country: "", countrycode: "", population: "", countryflag: "" }
 
 const Exam06 = () => {
@@ -152,7 +152,7 @@ const Exam06 = () => {
     // }
 
     return (
-        <FrameBook>
+        <div>
             <ModalFormCity
                 loading={submitloading}
                 open={open}
@@ -180,7 +180,7 @@ const Exam06 = () => {
                 dataSource={searchDataSource} onEdit={onEdit} onDelete={onDelete} />
 
 
-        </FrameBook>
+        </div>
     );
 };
 

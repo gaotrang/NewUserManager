@@ -24,13 +24,13 @@ export const ButtonCreate = styled(Button)`
         border-color: #fff;
     }
 `
-export const FrameBook = styled.div`
-    margin: 50px 50px;
-    border: 5px solid gray;
-    border-radius: 15px;
-`
+// export const FrameBook = styled.div`
+//     margin: 50px 50px;
+//     border: 5px solid gray;
+//     border-radius: 15px;
+// `
 export const SearchContainer = styled.div`
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1280px-Flag_of_Vietnam.svg.png");
+    background-image
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
